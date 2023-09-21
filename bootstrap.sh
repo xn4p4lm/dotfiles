@@ -13,6 +13,17 @@ set -x FISH_CONFIG_DIR $DOTFILES_DIR/fish
 # Define git configs folder
 set -x GIT_CONFIG_DIR $DOTFILES_DIR/git
 
+function source_files -d "Source fish and git config files"
+    # install fish plugins
+    source $FISH_CONFIG_DIR/install_plugins.fish
+
+    # run configure_fish
+    source $FISH_CONFIG_DIR/configure_fish.fish
+
+    # run configure_git.sh
+    source $GIT_CONFIG_DIR/configure_git.fish
+end
+
 # clone dotfiles repo into workspace if it doesn't exist
 if not test -d $DOTFILES_DIR
     git clone $DOTFILES_REPO $DOTFILES_DIR
@@ -22,23 +33,12 @@ if not test -d $DOTFILES_DIR
         git -C $DOTFILES_DIR checkout $DOTFILES_BRANCH
     end
 
-    # install fish plugins
-    $DOTFILES_DIR/fish/install_plugins.fish
+    source_files
 
-    # run configure_fish
-    $DOTFILES_DIR/fish/configure_fish.fish
-
-    # run configure_git.sh
-    $DOTFILES_DIR/git/configure_git.fish
 else
-    # install fish plugins
-    $DOTFILES_DIR/fish/install_plugins.fish
 
-    # run configure_fish
-    $DOTFILES_DIR/fish/configure_fish.fish
-
-    # run configure_git.sh
-    $DOTFILES_DIR/git/configure_git.fish
+    source_files
+    
 end
 
 

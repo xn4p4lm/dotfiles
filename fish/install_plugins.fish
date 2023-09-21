@@ -6,9 +6,8 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 # install fisher plugins
 fisher install jethrokuan/z
 fisher install jorgebucaran/nvm.fish
-fisher install jorgebucaran/fish-nvm-completions
 
 # install virtualfish
-mkdir ~/.virtualenvs
-pip install virtualfish
-vf install
+# mkdir ~/.virtualenvs
+# pip install virtualfish
+# vf install
