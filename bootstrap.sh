@@ -3,7 +3,7 @@
 # Define variables
 set -x FISH_CONFIG_DIR ~/.config/fish
 set -x DOTFILES_REPO "https://github.com/xn4p4lm/dotfiles.git"
-set -x WORKSPACES_DIR ~/workspaces
+set -x WORKSPACES_DIR /workspaces
 set -x DOTFILES_DIR $WORKSPACES_DIR/dotfiles
 set -x Currenenv
 
