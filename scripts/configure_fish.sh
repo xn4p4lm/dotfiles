@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ## set fish as default shell
 chsh -s $(which fish) $USER
 
