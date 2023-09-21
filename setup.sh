@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env fish
 
 #run config scripts
 ./scripts/configure_fish.sh

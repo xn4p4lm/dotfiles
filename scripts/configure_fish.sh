@@ -1,7 +1,4 @@
-#!/bin/bash
-
-## set fish as default shell
-chsh -s $(which fish) $USER
+#!/usr/bin/env fish
 
 ## install fisher
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
