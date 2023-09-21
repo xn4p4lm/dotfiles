@@ -16,15 +16,31 @@ set -x GIT_CONFIG_DIR $DOTFILES_DIR/git
 # clone dotfiles repo into workspace if it doesn't exist
 if not test -d $DOTFILES_DIR
     git clone $DOTFILES_REPO $DOTFILES_DIR
+
+    # if branch variable is set, checkout that branch
+    if test -n "$DOTFILES_BRANCH"
+        git -C $DOTFILES_DIR checkout $DOTFILES_BRANCH
+    end
+
+    # install fish plugins
+    $DOTFILES_DIR/fish/install_plugins.fish
+
+    # run configure_fish
+    $DOTFILES_DIR/fish/configure_fish.fish
+
+    # run configure_git.sh
+    $DOTFILES_DIR/git/configure_git.fish
+else
+    # install fish plugins
+    $DOTFILES_DIR/fish/install_plugins.fish
+
+    # run configure_fish
+    $DOTFILES_DIR/fish/configure_fish.fish
+
+    # run configure_git.sh
+    $DOTFILES_DIR/git/configure_git.fish
 end
 
-# if branch variable is set, checkout that branch
-if test -n "$DOTFILES_BRANCH"
-    git -C $DOTFILES_DIR checkout $DOTFILES_BRANCH
-end
 
-# run configure_fish.sh
-$DOTFILES_DIR/fish/configure_fish.sh
 
-# run configure_git.sh
-$DOTFILES_DIR/git/configure_git.sh
+
